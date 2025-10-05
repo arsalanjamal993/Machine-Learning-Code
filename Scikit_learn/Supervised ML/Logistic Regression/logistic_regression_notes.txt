@@ -1,0 +1,87 @@
+📘 Logistic Regression (Supervised Learning - Classification)
+
+-------------------------------------------------------------
+
+1) Definition
+Logistic Regression is a supervised classification algorithm used to predict categorical outcomes (e.g., 0/1, Yes/No).
+
+- Despite its name, it is used for classification, not regression.
+- It predicts probabilities and then assigns them to classes.
+
+Equation:
+p = 1 / (1 + e^-(mX + c))
+
+- p = probability (between 0 and 1)
+- mX + c = linear function of inputs
+
+-------------------------------------------------------------
+
+2) Explanation
+- Linear Regression gives continuous outputs. Logistic Regression maps these outputs into 0–1 range using the sigmoid function.
+- Then it applies a threshold (default = 0.5):
+  - If probability ≥ 0.5 → Class 1
+  - Else → Class 0
+
+-------------------------------------------------------------
+
+3) Real-life Examples
+- Predict if a student will Pass/Fail based on hours studied.
+- Predict if an email is Spam/Not Spam.
+- Predict if a customer will Buy/Not Buy a product.
+
+-------------------------------------------------------------
+
+4) Syntax (scikit-learn)
+from sklearn.linear_model import LogisticRegression
+
+# Create model
+model = LogisticRegression()
+
+# Train model
+model.fit(X_train, y_train)
+
+# Predict class labels
+y_pred = model.predict(X_test)
+
+# Predict probabilities
+proba = model.predict_proba(X_test)
+
+-------------------------------------------------------------
+
+5) How it Works
+1. Training Phase:
+   - Learns coefficients (slope = m) and intercept (c).
+   - Fits a sigmoid curve to data.
+
+2. Prediction Phase:
+   - Calculates probability using sigmoid function.
+   - Converts probability into class (0/1) using threshold.
+
+3. Decision Boundary:
+   - The point where probability = 0.5.
+   - Example: If boundary = 8 suspicious words → below 8 = Not Spam, above 8 = Spam.
+
+-------------------------------------------------------------
+
+6) Key Outputs in scikit-learn
+- model.coef_ → slope(s) (weights)
+- model.intercept_ → intercept
+- model.predict() → predicted class (0/1)
+- model.predict_proba() → predicted probability (e.g., [0.22, 0.78])
+
+-------------------------------------------------------------
+
+7) Metrics for Evaluation
+Since Logistic Regression is for classification, common metrics are:
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+
+-------------------------------------------------------------
+
+8) Summary
+- Regression predicts numbers, Logistic Regression predicts classes.
+- Uses sigmoid to map outputs into probabilities (0–1).
+- Great for binary classification problems (Pass/Fail, Spam/Not Spam).
+- Probabilities make it more interpretable than plain classification.

@@ -1,0 +1,63 @@
+📘 K-Nearest Neighbors (KNN) — Supervised Learning
+
+-------------------------------------------------------------
+1) Definition
+K-Nearest Neighbors (KNN) is a supervised learning algorithm that classifies or predicts data points 
+based on the classes/values of their nearest neighbors.
+
+- k = number of neighbors to consider.
+- Works for both Classification (categorical labels) and Regression (continuous values).
+
+-------------------------------------------------------------
+2) Explanation
+- KNN stores all the training data.
+- When predicting for a new point, it calculates the distance from that point to all training samples.
+- It selects the 'k' nearest points.
+- For Classification → majority vote of neighbors.
+- For Regression → average of neighbors’ values.
+
+-------------------------------------------------------------
+3) Real-life Examples
+- Classifying fruits based on weight and size (Apple vs Orange).
+- Recommending movies based on similar user ratings.
+- Predicting house prices using nearby houses.
+
+-------------------------------------------------------------
+4) Syntax (scikit-learn)
+from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+-------------------------------------------------------------
+5) How it Works
+1. Choose a value for k (e.g., 3).
+2. Compute distances (commonly Euclidean) between the new point and all training points.
+3. Select the k nearest neighbors.
+4. Classification → use majority class.
+   Regression → use mean value.
+5. Return the result.
+
+-------------------------------------------------------------
+6) Key Concepts
+- Distance Metrics: Euclidean, Manhattan, Minkowski.
+- Odd values of k are preferred (to avoid ties).
+- Small k → Overfitting (too sensitive to noise).
+- Large k → Underfitting (too smooth).
+- Important: Features must be scaled (Normalization/Standardization).
+
+-------------------------------------------------------------
+7) Outputs in scikit-learn
+- model.predict([[new_data]]) → prediction (class or value).
+- model.score(X, y) → accuracy (classification) or R² (regression).
+
+-------------------------------------------------------------
+8) Summary
+- KNN = Lazy learner (no training phase, just memorizes data).
+- Simple, intuitive, but slow for very large datasets.
+- Works best when:
+  - Data is well-scaled
+  - Classes are balanced
+  - k is chosen carefully (√n rule + cross-validation)
+

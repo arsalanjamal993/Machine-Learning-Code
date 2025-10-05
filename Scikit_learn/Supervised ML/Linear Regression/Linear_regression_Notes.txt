@@ -1,0 +1,81 @@
+📘 Linear Regression (Supervised Learning)
+
+-------------------------------------------------------------
+
+1) Definition
+Linear Regression is a supervised learning algorithm used to predict a continuous target variable (Y) from one or more input features (X), assuming a linear relationship.
+
+Equation (Simple Linear Regression):
+Y = mX + c
+- m = slope (how much Y changes when X changes)
+- c = intercept (value of Y when X = 0)
+
+-------------------------------------------------------------
+
+2) Explanation
+- Finds the best-fit straight line through the data points.
+- Minimizes the error between predicted and actual values.
+- Uses the Least Squares Method to find slope and intercept.
+
+Two types:
+1. Simple Linear Regression → one input feature (X).
+2. Multiple Linear Regression → multiple input features.
+
+-------------------------------------------------------------
+
+3) Real-life Examples
+- Predict exam scores from hours studied.
+- Predict salary from years of experience.
+- Predict house prices from size, number of rooms, location.
+
+-------------------------------------------------------------
+
+4) Syntax (scikit-learn)
+
+from sklearn.linear_model import LinearRegression
+
+# 1. Prepare data
+X = [[1], [2], [3], [4], [5]]     # Features (2D list)
+y = [40, 50, 60, 65, 70]          # Target (1D list)
+
+# 2. Create model
+model = LinearRegression()
+
+# 3. Train the model
+model.fit(X, y)
+
+# 4. Make prediction
+prediction = model.predict([[6]])   # predict for 6 hours
+print("Predicted value:", prediction[0])
+
+# 5. View learned parameters
+print("Slope (coef_):", model.coef_)
+print("Intercept:", model.intercept_)
+
+-------------------------------------------------------------
+
+5) How it Works
+1. Training Phase:
+   - Calculates slope (m) and intercept (c).
+   - Learns the best-fit line.
+
+2. Prediction Phase:
+   - Uses the line equation Y = mX + c for new inputs.
+
+3. Error Minimization:
+   - Uses Mean Squared Error (MSE) to minimize differences.
+   Formula: MSE = (1/n) * Σ (Y_actual - Y_predicted)^2
+
+-------------------------------------------------------------
+
+6) Key Outputs in scikit-learn
+- model.coef_ → slope(s)
+- model.intercept_ → intercept
+- model.score(X, y) → R² value (goodness of fit)
+
+-------------------------------------------------------------
+
+7) Summary
+- Regression = predicting numbers.
+- Linear Regression = predicting numbers using a straight line relationship.
+- Foundation for advanced models (Logistic Regression, Ridge, Lasso).
