@@ -1,4 +1,4 @@
-📘 K-Nearest Neighbors (KNN) — Supervised Learning
+K-Nearest Neighbors (KNN) — Supervised Learning
 
 -------------------------------------------------------------
 1) Definition

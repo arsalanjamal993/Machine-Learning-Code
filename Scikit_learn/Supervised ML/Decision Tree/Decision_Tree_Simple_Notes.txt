@@ -1,0 +1,92 @@
+Decision Tree (Supervised Learning)
+
+-------------------------------------------------------------
+
+1) Definition
+Decision Tree is a supervised learning algorithm used for classification and regression.
+It predicts a target variable by splitting data into subsets based on feature values, forming a tree-like structure of nodes, branches, and leaves.
+
+-------------------------------------------------------------
+
+2) Explanation
+- Splits data recursively using features that best separate the target.
+- Root Node → top node representing the entire dataset.
+- Internal Nodes → nodes that split data based on a feature.
+- Leaf Nodes → final nodes representing predicted output.
+- Simple to interpret and visualize.
+- Can handle both numerical and categorical features.
+
+Two types:
+1. Classification Tree → predicts discrete classes.
+2. Regression Tree → predicts continuous values.
+
+-------------------------------------------------------------
+
+3) Real-life Examples
+- Predict loan approval based on credit score, income, and employment.
+- Decide whether to play a game based on weather conditions.
+- Predict house price category based on location, size, and rooms.
+
+-------------------------------------------------------------
+
+4) Syntax (scikit-learn)
+
+from sklearn.tree import DecisionTreeClassifier
+
+# Training data: [size, shade]
+x = [
+    [7, 2],  # Apple
+    [8, 3],  # Apple
+    [9, 8],  # Orange
+    [10, 9], # Orange
+]
+
+y = [0, 0, 1, 1]  # 0 = Apple, 1 = Orange
+
+# Create and train model
+model = DecisionTreeClassifier()
+model.fit(x, y)
+
+# User input
+size = float(input("Enter the fruit size in cm: "))
+shade = float(input("Enter the color shade (1-10): "))
+
+# Prediction
+result = model.predict([[size, shade]])[0]
+
+if result == 0:
+    print("This is likely an apple")
+else:
+    print("This is likely an orange")
+
+
+-------------------------------------------------------------
+
+5) How it Works
+1. Training Phase
+   - Select the best feature to split data (using Gini or Entropy).
+   - Split data into subsets recursively.
+   - Stop splitting when leaf nodes are pure or stopping criteria reached.
+
+2. Prediction Phase
+   - Traverse tree from root to leaf using feature rules.
+   - Assign the class label (or value) at leaf node.
+
+3. Error Minimization
+   - For classification → purity metrics like Gini or Entropy.
+   - For regression → variance reduction or Mean Squared Error (MSE).
+
+-------------------------------------------------------------
+
+6) Key Outputs in scikit-learn
+- model.feature_importances_ → importance of each feature.
+- model.predict(X_new) → predicted class/values.
+- model.score(X, y) → accuracy for classification or R² for regression.
+
+-------------------------------------------------------------
+
+7) Summary
+- Decision Tree = flowchart-like model for making decisions.
+- Easy to visualize and interpret.
+- Can handle numerical and categorical data.
+- Basis for advanced ensemble methods like Random Forest and Gradient Boosting.
